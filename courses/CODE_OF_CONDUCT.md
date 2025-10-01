@@ -1,39 +1,42 @@
-This code of conduct outlines expectations for participation in LinkedIn-managed open source communities, as well as steps for reporting unacceptable behavior. We are committed to providing a welcoming and inspiring community for all. People violating this code of conduct may be banned from the community.
+이 행동 강령은 LinkedIn이 관리하는 오픈 소스 커뮤니티에 참여하는 데 대한 기대치와, 용납될 수 없는 행동을 신고하기 위한 절차를 간략하게 설명합니다. 저희는 모두에게 환영받고 영감을 주는 커뮤니티를 제공하기 위해 최선을 다하고 있습니다. 이 행동 강령을 위반하는 사람들은 커뮤니티에서 **강제 퇴출(banned)**될 수 있습니다.
 
-Our open source communities strive to:
+저희의 오픈 소스 커뮤니티는 다음을 지향합니다.
 
-* **Be friendly and patient:** Remember you might not be communicating in someone else's primary spoken or programming language, and others may not have your level of understanding.
-* **Be welcoming:** Our communities welcome and support people of all backgrounds and identities. This includes, but is not limited to members of any race, ethnicity, culture, national origin, color, immigration status, social and economic class, educational level, sex, sexual orientation, gender identity and expression, age, size, family status, political belief, religion, and mental and physical ability.
-* **Be respectful:** We are a world-wide community of professionals, and we conduct ourselves professionally. Disagreement is no excuse for poor behavior and poor manners. Disrespectful and unacceptable behavior includes, but is not limited to:
-    * Violent threats or language.
-    * Discriminatory or derogatory jokes and language.
-    * Posting sexually explicit or violent material.
-    * Posting, or threatening to post, people's personally identifying information ("doxing").
-    * Insults, especially those using discriminatory terms or slurs.
-    * Behavior that could be perceived as sexual attention.
-    * Advocating for or encouraging any of the above behaviors.
-* **Understand disagreements:** Disagreements, both social and technical, are useful learning opportunities. Seek to understand the other viewpoints and resolve differences constructively.
-* This code is not exhaustive or complete. It serves to capture our common understanding of a productive, collaborative environment. We expect the code to be followed in spirit as much as in the letter.
+* **Be friendly and patient:** 여러분의 주요 사용 언어나 프로그래밍 언어가 아닌 다른 언어로 소통하고 있을 수 있으며, 다른 사람들이 여러분과 동일한 수준의 이해도를 가지고 있지 않을 수 있음을 기억하십시오.
+* **Be welcoming:** 저희 커뮤니티는 모든 배경과 정체성을 가진 사람들을 환영하고 지원합니다. 이는 인종, 민족, 문화, 출신 국가, 피부색, 이민 상태, 사회/경제적 계층, 교육 수준, 성별, 성적 지향, 성 정체성 및 표현, 연령, 체형, 가족 상태, 정치적 신념, 종교, 정신적/신체적 능력 등을 포함하며 이에 국한되지 않습니다.
+* **Be respectful:** 저희는 전 세계적인 전문가 커뮤니티이며, 전문적으로 행동합니다. 의견 불일치는 나쁜 행동이나 무례한 태도에 대한 변명이 될 수 없습니다. 무례하고 용납될 수 없는 행동에는 다음이 포함되지만 이에 국한되지는 않습니다.
+    * 폭력적인 위협이나 언어.
+    * 차별적이거나 경멸적인 농담 및 언어.
+    * 성적으로 노골적이거나 폭력적인 자료 게시.
+    * 개인 식별 정보("doxing")를 게시하거나 게시하겠다고 위협하는 행위.
+    * 모욕, 특히 차별적인 용어나 비방(slurs)을 사용하는 행위.
+    * 성적인 관심으로 인식될 수 있는 행동.
+    * 위의 행동 중 하나라도 옹호하거나 부추기는 행위.
+* **Understand disagreements:** 사회적이든 기술적이든, 의견 불일치는 유용한 학습 기회입니다. 상대방의 관점을 이해하려고 노력하고 건설적으로 차이점을 해결하도록 노력하십시오.
+* 이 강령은 포괄적이거나 완전하지 않습니다. 이는 생산적이고 협력적인 환경에 대한 우리의 공통된 이해를 담기 위한 것입니다. 저희는 이 강령의 **문자적 해석만큼이나 정신(spirit)**도 따라줄 것을 기대합니다.
 
 ### Scope
 
-This code of conduct applies to all repos and communities for LinkedIn-managed open source projects regardless of whether or not the repo explicitly calls out its use of this code. The code also applies in public spaces when an individual is representing a project or its community. Examples include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
+이 행동 강령은 해당 저장소(repo)에서 이 강령의 사용을 명시적으로 언급하는지 여부에 관계없이, LinkedIn이 관리하는 오픈 소스 프로젝트의 모든 저장소와 커뮤니티에 적용됩니다. 또한, 개인이 프로젝트나 커뮤니티를 대표하는 경우 공공장소에서도 적용됩니다.
 
-Note: Some LinkedIn-managed communities have codes of conduct that pre-date this document and issue resolution process. While communities are not required to change their code, they are expected to use the resolution process outlined here. The review team will coordinate with the communities involved to address your concerns.
+예를 들어, 공식 프로젝트 이메일 주소를 사용하거나, 공식 소셜 미디어 계정을 통해 게시물을 올리거나, 온라인 또는 오프라인 행사에서 지정된 대표로 활동하는 경우가 포함됩니다. 프로젝트의 대표 자격은 프로젝트 관리자(maintainers)에 의해 추가로 정의되고 명확해질 수 있습니다.
+
+참고: 일부 LinkedIn 관리 커뮤니티에는 이 문서와 문제 해결 프로세스보다 앞서 만들어진 자체 행동 강령이 있을 수 있습니다. 커뮤니티가 기존 강령을 변경할 필요는 없지만, 여기에 명시된 해결 프로세스를 사용할 것으로 예상됩니다. 검토 팀은 관련 커뮤니티와 협력하여 귀하의 우려 사항을 처리할 것입니다.
+
 
 ### Reporting Code of Conduct Issues
 
-We encourage all communities to resolve issues on their own whenever possible. This builds a broader and deeper understanding and ultimately a healthier interaction. In the event that an issue cannot be resolved locally, please feel free to report your concerns by contacting [oss@linkedin.com](mailto:oss@linkedin.com).
+저희는 가능한 한 모든 커뮤니티가 자체적으로 문제를 해결하도록 권장합니다. 이는 더 넓고 깊은 이해를 구축하고 궁극적으로 더 건강한 상호 작용을 형성합니다. 하지만 문제가 자체적으로 해결될 수 없는 경우, 주저하지 마시고 [oss@linkedin.com](mailto:oss@linkedin.com)으로 연락하여 우려 사항을 신고해 주십시오.
 
-In your report, please include:
+신고 시 포함해야 할 내용:
 
-*   Your contact information.
-*   Names (real, usernames or pseudonyms) of any individuals involved. If there are additional witnesses, please include them as well.
-*   Your account of what occurred, and if you believe the incident is ongoing. If there is a publicly available record (e.g. a mailing list archive or a public chat log), please include a link or attachment.
-*   Any additional information that may be helpful.
+*   귀하의 연락처 정보.
+*   관련된 모든 개인의 이름 (실명, 사용자 이름 또는 가명). 추가 목격자가 있는 경우, 해당 정보도 포함해 주십시오.
+*   발생한 상황에 대한 귀하의 진술과, 사건이 현재도 진행 중이라고 생각하는지 여부. 공개적으로 이용 가능한 기록(예: 메일링 리스트 기록 보관소 또는 공개 채팅 로그)이 있다면, 해당 링크 또는 첨부 파일을 포함해 주십시오.
+*   도움이 될 수 있는 기타 추가 정보.
 
-All reports will be reviewed by a multi-person team and will result in a response that is deemed necessary and appropriate to the circumstances. Where additional perspectives are needed, the team may seek insight from others with relevant expertise or experience. The confidentiality of the person reporting the incident will be kept at all times. Involved parties are never part of the review team.
+모든 신고는 다수 인원으로 구성된 팀에 의해 검토되며, 상황에 필요하고 적절하다고 판단되는 조치를 취할 것입니다. 추가적인 관점이 필요한 경우, 팀은 관련 전문 지식이나 경험을 가진 다른 사람들의 의견을 구할 수 있습니다. 신고자의 기밀은 항상 유지됩니다. 사건에 관련된 당사자들은 검토 팀에 포함되지 않습니다.
 
-Anyone asked to stop unacceptable behavior is expected to comply immediately. If an individual engages in unacceptable behavior, the review team may take any action they deem appropriate, including a permanent ban from the community.
+용납될 수 없는 행동을 중단하라는 요청을 받은 사람은 즉시 이에 따라야 합니다. 만약 개인이 용납될 수 없는 행동에 연루될 경우, 검토 팀은 커뮤니티에서 **영구적인 활동 금지(permanent ban)**를 포함하여 적절하다고 판단되는 모든 조치를 취할 수 있습니다.
 
 _This code of conduct is based on the [Microsoft](https://opensource.microsoft.com/codeofconduct/) Open Source Code of Conduct which was based on the [template](http://todogroup.org/opencodeofconduct) established by the [TODO Group](http://todogroup.org/) and used by numerous other large communities (e.g., [Facebook](https://code.facebook.com/pages/876921332402685/open-source-code-of-conduct), [Yahoo](https://yahoo.github.io/codeofconduct), [Twitter](https://engineering.twitter.com/opensource/code-of-conduct), [GitHub](http://todogroup.org/opencodeofconduct/#opensource@github.com)) and the Scope section from the [Contributor Covenant version 1.4](http://contributor-covenant.org/version/1/4/)._
