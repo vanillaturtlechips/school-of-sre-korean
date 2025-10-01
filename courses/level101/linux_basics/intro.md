@@ -57,7 +57,7 @@
     * [Applications in SRE Role](conclusion.md#applications-in-sre-role)
     * [Useful Courses and tutorials](conclusion.md#useful-courses-and-tutorials)
 
-## Linux 운영체제란 무엇인가?
+## Linux 운영체제란 무엇인가? {#what-are-linux-operating-systems}
 
 우리 대부분은 개인용 컴퓨터의 75% 이상에서 사용되는 Windows 운영체제에 익숙합니다. Windows 운영체제는 Windows NT 커널을 기반으로 합니다.
 
@@ -72,7 +72,7 @@ Linux는 커널일 뿐이며, 완전한 운영체제는 아닙니다. Linux 커�
 History of Linux -
 [https://en.wikipedia.org/wiki/History_of_Linux](https://en.wikipedia.org/wiki/History_of_Linux)
 
-## 인기 있는 Linux 배포판이란 무엇인가요?
+## 인기 있는 Linux 배포판이란 무엇인가요? {#what-are-popular-linux-distributions}
 
 **Linux 배포판(Linux distribution, distro)**은 Linux 커널과 패키지 관리 시스템을 기반으로 하는 운영체제입니다. 패키지 관리 시스템은 운영체제에 소프트웨어를 설치, 업그레이드, 구성 및 제거하는 데 도움을 주는 도구로 구성되어 있습니다.
 
@@ -100,7 +100,7 @@ History of Linux -
 | Debian style (`.deb`)  |   Debian, Ubuntu                           |   APT
 | Red Hat style (`.rpm`) |   Fedora, CentOS, Red Hat Enterprise Linux |  YUM
 
-## Linux Architecture
+## Linux Architecture {#linux-architecture}
 
 ![](images/linux/commands/image25.png)
 
@@ -112,7 +112,7 @@ History of Linux -
 
 - **장치 드라이버(Device drivers)**는 하드웨어 장치와 통신하는 데 사용됩니다.
 
-## Linux 운영체제의 사용처
+## Linux 운영체제의 사용처 {#uses-of-linux-operating-systems}
 
 Linux 커널을 기반으로 하는 운영체제는 다음 분야에서 널리 사용됩니다.:
 
@@ -128,7 +128,7 @@ Linux 커널을 기반으로 하는 운영체제는 다음 분야에서 널리 �
 
 - 네트워크 장치 - 라우터, 스위치 등
 
-## 그래픽 사용자 인터페이스(GUI) vs. 명령줄 인터페이스(CLI)
+## 그래픽 사용자 인터페이스(GUI) vs. 명령줄 인터페이스(CLI) {#graphical-user-interface-gui-vs-command-line-interface-cli}
 
 사용자는 사용자 인터페이스의 도움을 받아 컴퓨터와 상호 작용합니다. 이 사용자 인터페이스는 GUI 또는 CLI일 수 있습니다.
 
