@@ -1,36 +1,30 @@
-# Linux Basics
+# Linux 기본
 
-## Introduction
-### Prerequisites
+## 소개
+### 필수 지식 (Prerequisites)
 
-- Should be comfortable in using any operating systems like Windows, Linux or
-- Expected to have fundamental knowledge of operating systems
+- Windows, Linux 등 어떤 운영체제든 사용하는 데 익숙해야 합니다.
+- 운영체제에 대한 기본적인 지식을 갖추고 있어야 합니다.
 
 ## What to expect from this course
 
-This course is divided into three parts. In the first part, we cover the
-fundamentals of Linux operating systems. We will talk about Linux architecture,
-Linux distributions and uses of Linux operating systems. We will also talk about the
-difference between GUI and CLI.
+이 과정은 세 부분으로 나뉩니다.
 
-In the second part, we cover some basic commands used in Linux. 
-We will focus on commands used for navigating the file system, viewing and manipulating files,
-I/O redirection, etc.
+첫 번째 부분에서는 Linux 운영체제의 기본 개념을 다룹니다. Linux 아키텍처, Linux 배포판(distributions) 및 Linux 운영체제의 사용에 대해 이야기할 것입니다. 또한 GUI와 CLI의 차이점에 대해서도 다룹니다.
 
-In the third part, we cover Linux system administration. This includes day-to-day tasks 
-performed by Linux admins, like managing users/groups, managing file permissions, 
-monitoring system performance, log files etc.
+두 번째 부분에서는 Linux에서 사용되는 몇 가지 기본 명령어를 다룹니다. 파일 시스템을 탐색하고, 파일을 보거나 조작하며, I/O 리디렉션 등에 사용되는 명령어에 중점을 둘 것입니다.
 
-In the second and third part, we will be showing examples to understand the concepts.
+세 번째 부분에서는 Linux 시스템 관리를 다룹니다. 여기에는 사용자/그룹 관리, 파일 권한 관리, 시스템 성능 모니터링, 로그 파일 관리 등 Linux 관리자가 수행하는 일상적인 작업이 포함됩니다.
 
-## What is not covered under this course
+두 번째와 세 번째 부분에서는 개념 이해를 돕기 위한 예시를 보여줄 것입니다.
 
-We are not covering advanced Linux commands and Bash scripting in this
-course. We will also not be covering Linux internals. 
+## 이 과정에서 다루지 않는 내용
 
-## Course Contents
+이 과정에서는 고급 Linux 명령어와 Bash 스크립팅은 다루지 않습니다. 또한 **Linux 내부 구조(Linux internals)**에 대해서도 다루지 않을 것입니다.
 
-The following topics has been covered in this course:
+## 과정 목차
+
+이 과정에서 다루는 주제는 다음과 같습니다:
 
 -  [Introduction to Linux](https://linkedin.github.io/school-of-sre/level101/linux_basics/intro/)
     -  [What are Linux Operating Systems](https://linkedin.github.io/school-of-sre/level101/linux_basics/intro/#what-are-linux-operating-systems)
@@ -63,41 +57,28 @@ The following topics has been covered in this course:
     -  [Applications in SRE Role](https://linkedin.github.io/school-of-sre/level101/linux_basics/conclusion/#applications-in-sre-role)
     -  [Useful Courses and tutorials](https://linkedin.github.io/school-of-sre/level101/linux_basics/conclusion/#useful-courses-and-tutorials)
 
-## What are Linux operating systems
+## Linux 운영체제란 무엇인가?
 
-Most of us are familiar with the Windows operating system used in more than
- 75% of the personal computers. The Windows operating systems
-are based on Windows NT kernel. 
+우리 대부분은 개인용 컴퓨터의 75% 이상에서 사용되는 Windows 운영체제에 익숙합니다. Windows 운영체제는 Windows NT 커널을 기반으로 합니다.
 
-A _kernel_ is the most important part of
-an operating system&mdash;it performs important functions like process
-management, memory management, filesystem management, etc.
+**커널(kernel)**은 운영체제의 가장 중요한 부분으로, 프로세스 관리, 메모리 관리, 파일 시스템 관리 등 핵심적인 기능을 수행합니다.
 
-Linux operating systems are based on the Linux kernel. A Linux-based
-operating system will consist of Linux kernel, GUI/CLI, system libraries
-and system utilities. The Linux kernel was independently developed and
-released by Linus Torvalds. The Linux kernel is free and open-source (See 
+Linux 운영체제는 Linux 커널을 기반으로 합니다. Linux 기반 운영체제는 Linux 커널, GUI/CLI, 시스템 라이브러리 및 시스템 유틸리티로 구성됩니다. Linux 커널은 Linus Torvalds가 독자적으로 개발하고 배포했습니다. Linux 커널은 무료이며 오픈 소스입니다. (See 
 [https://github.com/torvalds/linux](https://github.com/torvalds/linux)).
 
-Linux is a kernel and not a complete operating system. Linux kernel is combined with GNU system to make a complete operating system. Therefore, Linux-based operating systems are also called as GNU/Linux systems. GNU is an extensive collection of free softwares like compiler, debugger, C library etc. (See
+Linux는 커널일 뿐이며, 완전한 운영체제는 아닙니다. Linux 커널은 GNU 시스템과 결합하여 완전한 운영체제를 만듭니다. 따라서 Linux 기반 운영체제는 GNU/Linux 시스템이라고도 불립니다. GNU는 컴파일러, 디버거, C 라이브러리 등과 같은 방대한 무료 소프트웨어 모음입니다. (See
 [Linux and the GNU  System](https://www.gnu.org/gnu/linux-and-gnu.en.html))
 
 History of Linux -
 [https://en.wikipedia.org/wiki/History_of_Linux](https://en.wikipedia.org/wiki/History_of_Linux)
 
-## What are popular Linux distributions
+## 인기 있는 Linux 배포판이란 무엇인가요?
 
-A Linux distribution (_distro_) is an operating system based on
-the Linux kernel and a package management system. A package management
-system consists of tools that help in installing, upgrading,
-configuring and removing softwares on the operating system.
+**Linux 배포판(Linux distribution, distro)**은 Linux 커널과 패키지 관리 시스템을 기반으로 하는 운영체제입니다. 패키지 관리 시스템은 운영체제에 소프트웨어를 설치, 업그레이드, 구성 및 제거하는 데 도움을 주는 도구로 구성되어 있습니다.
 
-Software are usually adopted to a distribution and are packaged in a
-distro-specific format. These packages are available through a distro-specific 
-repository. Packages are installed and managed in the operating
-system by a package manager.
+소프트웨어는 일반적으로 특정 배포판에 맞게 조정되며, 배포판 고유의 형식으로 패키지화됩니다. 이러한 패키지는 배포판 고유의 **저장소(repository)**를 통해 제공됩니다. 패키지들은 **패키지 관리자(package manager)**에 의해 운영체제에 설치되고 관리됩니다.
 
-**List of popular Linux distributions:**
+**인기 있는 Linux 배포판 목록:**
 
 - Fedora
 
@@ -105,7 +86,7 @@ system by a package manager.
 
 - Debian
 
-- Centos
+- Centos (EOS) -> Rocky
 
 - Red Hat Enterprise Linux
 
@@ -123,58 +104,42 @@ system by a package manager.
 
 ![](images/linux/commands/image25.png)
 
-- The Linux kernel is monolithic in nature.
+- Linux 커널은 모놀리식(monolithic) 성격입니다.
 
-- System calls are used to interact with the Linux kernel space.
+- **시스템 호출(System calls)**은 Linux 커널 공간과 상호 작용하는 데 사용됩니다.
 
-- Kernel code can only be executed in the kernel mode. Non-kernel code is executed in the user mode.
+- 커널 코드는 오직 커널 모드에서만 실행될 수 있습니다. 비(非)커널 코드는 사용자 모드에서 실행됩니다.
 
-- Device drivers are used to communicate with the hardware devices.
+- **장치 드라이버(Device drivers)**는 하드웨어 장치와 통신하는 데 사용됩니다.
 
-## Uses of Linux Operating Systems
+## Linux 운영체제의 사용처
 
-Operating system based on Linux kernel are widely used in:
+Linux 커널을 기반으로 하는 운영체제는 다음 분야에서 널리 사용됩니다.:
 
-- Personal computers
+- 개인용 컴퓨터
 
-- Servers
+- 서버
 
-- Mobile phones - Android is based on Linux operating system
+- 모바일 폰 - Android는 Linux 운영체제를 기반으로 합니다.
 
-- Embedded devices - watches, televisions, traffic lights, etc.
+- 임베디드 장치 - 시계, TV, 신호등 등
 
-- Satellites
+- 위성
 
-- Network devices - routers, switches, etc.
+- 네트워크 장치 - 라우터, 스위치 등
 
-## Graphical user interface (GUI) vs Command line interface (CLI)
+## 그래픽 사용자 인터페이스(GUI) vs. 명령줄 인터페이스(CLI)
 
-A user interacts with a computer with the help of user interfaces. The
-user interface can be either GUI or CLI.
+사용자는 사용자 인터페이스의 도움을 받아 컴퓨터와 상호 작용합니다. 이 사용자 인터페이스는 GUI 또는 CLI일 수 있습니다.
 
-Graphical user interface allows a user to interact with the computer
-using graphics such as icons and images. When a user clicks on an icon
-to open an application on a computer, he or she is actually using the
-GUI. It's easy to perform tasks using GUI.
+**그래픽 사용자 인터페이스(GUI)**는 사용자가 아이콘 및 이미지와 같은 그래픽을 사용하여 컴퓨터와 상호 작용하도록 허용합니다. 사용자가 컴퓨터에서 애플리케이션을 열기 위해 아이콘을 클릭하는 경우, 실제로 GUI를 사용하고 있는 것입니다. GUI를 사용하면 작업을 수행하기가 쉽습니다.
 
-Command line interface allows a user to interact with the computer using
-commands. A user types the command in a terminal and the system helps in
-executing these commands. A new user with experience on GUI may find it 
-difficult to interact with CLI as he/she needs to be aware of the commands
-to perform a particular operation.
+**명령줄 인터페이스(CLI)**는 사용자가 명령어를 사용하여 컴퓨터와 상호 작용하도록 허용합니다. 사용자가 터미널에 명령어를 입력하면 시스템이 이 명령어를 실행하는 것을 돕습니다. GUI 경험만 있는 새로운 사용자는 특정 작업을 수행하기 위해 명령어를 알고 있어야 하므로 CLI와 상호 작용하는 것이 어려울 수 있습니다.
 
 ## Shell vs Terminal
 
-Shell is a program that takes commands from the
-users and gives them to the operating system for processing. Shell is an
-example of a CLI (command line interface). Bash is one of the most popular shell
-programs available on Linux servers. Other popular shell programs are
-zsh, ksh and tcsh.
+**셸(Shell)**은 사용자로부터 명령을 받아 운영체제가 처리하도록 전달하는 프로그램입니다. 셸은 **CLI(Command Line Interface)**의 한 예시입니다. Bash는 Linux 서버에서 가장 인기 있는 셸 프로그램 중 하나입니다. 다른 인기 있는 셸 프로그램으로는 zsh, ksh, tcsh 등이 있습니다.
 
-Terminal is a program that opens a window and lets you interact with the
-shell. Some popular examples of terminals are GNOME-terminal, xterm,
-Konsole, etc.
+**터미널(Terminal)**은 창을 열어 사용자가 셸과 상호 작용할 수 있도록 해주는 프로그램입니다. 터미널의 몇 가지 인기 있는 예시로는 GNOME-terminal, xterm, Konsole 등이 있습니다.
 
-Linux users do use the terms shell, terminal, prompt, console, etc.
-interchangeably. In simple terms, these all refer to a way of taking
-commands from the user.
+Linux 사용자들은 셸, 터미널, 프롬프트, 콘솔 등의 용어를 종종 혼용하여 사용합니다. 간단히 말해, 이 모든 것은 사용자로부터 명령을 받는 방법을 일컫습니다.
