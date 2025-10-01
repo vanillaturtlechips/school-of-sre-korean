@@ -26,38 +26,38 @@
 
 이 과정에서 다루는 주제는 다음과 같습니다:
 
-* [Introduction to Linux](intro.md)
-    * [What are Linux Operating Systems](#what-are-linux-operating-systems)
-    * [What are popular Linux distributions](#what-are-popular-linux-distributions)
-    * [Uses of Linux Operating Systems](#uses-of-linux-operating-systems)
-    * [Linux Architecture](#linux-architecture)
-    * [Graphical user interface (GUI) vs Command line interface (CLI)](#graphical-user-interface-gui-vs-command-line-interface-cli)
-* [Command Line Basics](command_line_basics.md)
-    * [Lab Environment Setup](command_line_basics.md#lab-environment-setup)
-    * [What is a Command](command_line_basics.md#what-is-a-command)
-    * [File System Organization](command_line_basics.md#file-system-organization)
-    * [Navigating File System](command_line_basics.md#commands-for-navigating-the-file-system)
-    * [Manipulating Files](command_line_basics.md#commands-for-manipulating-files)
-    * [Viewing Files](command_line_basics.md#commands-for-viewing-files)
-    * [Echo Command](command_line_basics.md#echo-command)
-    * [Text Processing Commands](command_line_basics.md#text-processing-commands)
-    * [I/O Redirection](command_line_basics.md#io-redirection)
-* [Linux system administration](linux_server_administration.md)
-    * [Lab Environment Setup](linux_server_administration.md#lab-environment-setup)
-    * [User/Groups management](linux_server_administration.md#usergroup-management)
-    * [Becoming a Superuser](linux_server_administration.md#becoming-a-superuser)
-    * [File Permissions](linux_server_administration.md#file-permissions)
-    * [SSH Command](linux_server_administration.md#ssh-command)
-    * [Package Management](linux_server_administration.md#package-management)
-    * [Process Management](linux_server_administration.md#process-management)
-    * [Memory Management](linux_server_administration.md#memory-management)
-    * [Daemons and Systemd](linux_server_administration.md#daemons)
-    * [Logs](linux_server_administration.md#logs)
-* [Conclusion](conclusion.md)
-    * [Applications in SRE Role](conclusion.md#applications-in-sre-role)
-    * [Useful Courses and tutorials](conclusion.md#useful-courses-and-tutorials)
+-  [Introduction to Linux](https://linkedin.github.io/school-of-sre/level101/linux_basics/intro/)
+    -  [What are Linux Operating Systems](https://linkedin.github.io/school-of-sre/level101/linux_basics/intro/#what-are-linux-operating-systems)
+    -  [What are popular Linux distributions](https://linkedin.github.io/school-of-sre/level101/linux_basics/intro/#what-are-popular-linux-distributions)
+    -  [Uses of Linux Operating Systems](https://linkedin.github.io/school-of-sre/level101/linux_basics/intro/#uses-of-linux-operating-systems)
+    -  [Linux Architecture](https://linkedin.github.io/school-of-sre/level101/linux_basics/intro/#linux-architecture)
+    -  [Graphical user interface (GUI) vs Command line interface (CLI)](https://linkedin.github.io/school-of-sre/level101/linux_basics/intro/#graphical-user-interface-gui-vs-command-line-interface-cli)
+-  [Command Line Basics](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/)
+    -  [Lab Environment Setup](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/#lab-environment-setup)
+    -  [What is a Command](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/#what-is-a-command)
+    -  [File System Organization](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/#file-system-organization)
+    -  [Navigating File System](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/#commands-for-navigating-the-file-system)
+    -  [Manipulating Files](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/#commands-for-manipulating-files)
+    -  [Viewing Files](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/#commands-for-viewing-files)
+    -  [Echo Command](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/#echo-command)
+    -  [Text Processing Commands](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/#text-processing-commands)
+    -  [I/O Redirection](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/#io-redirection)
+-  [Linux system administration](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/)
+    -  [Lab Environment Setup](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/#lab-environment-setup)
+    -  [User/Groups management](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/#usergroup-management)
+    -  [Becoming a Superuser](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/#becoming-a-superuser)
+    -  [File Permissions](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/#file-permissions)
+    -  [SSH Command](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/#ssh-command)
+    -  [Package Management](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/#package-management)
+    -  [Process Management](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/#process-management)
+    -  [Memory Management](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/#memory-management)
+    -  [Daemons and Systemd](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/#daemons)
+    -  [Logs](https://linkedin.github.io/school-of-sre/level101/linux_basics/linux_server_administration/#logs)
+-  [Conclusion](https://linkedin.github.io/school-of-sre/level101/linux_basics/conclusion)
+    -  [Applications in SRE Role](https://linkedin.github.io/school-of-sre/level101/linux_basics/conclusion/#applications-in-sre-role)
+    -  [Useful Courses and tutorials](https://linkedin.github.io/school-of-sre/level101/linux_basics/conclusion/#useful-courses-and-tutorials)
 
-## Linux 운영체제란 무엇인가? {#what-are-linux-operating-systems}
+## Linux 운영체제란 무엇인가?
 
 우리 대부분은 개인용 컴퓨터의 75% 이상에서 사용되는 Windows 운영체제에 익숙합니다. Windows 운영체제는 Windows NT 커널을 기반으로 합니다.
 
@@ -72,7 +72,7 @@ Linux는 커널일 뿐이며, 완전한 운영체제는 아닙니다. Linux 커�
 History of Linux -
 [https://en.wikipedia.org/wiki/History_of_Linux](https://en.wikipedia.org/wiki/History_of_Linux)
 
-## 인기 있는 Linux 배포판이란 무엇인가요? {#what-are-popular-linux-distributions}
+## 인기 있는 Linux 배포판이란 무엇인가요?
 
 **Linux 배포판(Linux distribution, distro)**은 Linux 커널과 패키지 관리 시스템을 기반으로 하는 운영체제입니다. 패키지 관리 시스템은 운영체제에 소프트웨어를 설치, 업그레이드, 구성 및 제거하는 데 도움을 주는 도구로 구성되어 있습니다.
 
@@ -100,7 +100,7 @@ History of Linux -
 | Debian style (`.deb`)  |   Debian, Ubuntu                           |   APT
 | Red Hat style (`.rpm`) |   Fedora, CentOS, Red Hat Enterprise Linux |  YUM
 
-## Linux Architecture {#linux-architecture}
+## Linux Architecture
 
 ![](images/linux/commands/image25.png)
 
@@ -112,7 +112,7 @@ History of Linux -
 
 - **장치 드라이버(Device drivers)**는 하드웨어 장치와 통신하는 데 사용됩니다.
 
-## Linux 운영체제의 사용처 {#uses-of-linux-operating-systems}
+## Linux 운영체제의 사용처
 
 Linux 커널을 기반으로 하는 운영체제는 다음 분야에서 널리 사용됩니다.:
 
@@ -128,7 +128,7 @@ Linux 커널을 기반으로 하는 운영체제는 다음 분야에서 널리 �
 
 - 네트워크 장치 - 라우터, 스위치 등
 
-## 그래픽 사용자 인터페이스(GUI) vs. 명령줄 인터페이스(CLI) {#graphical-user-interface-gui-vs-command-line-interface-cli}
+## 그래픽 사용자 인터페이스(GUI) vs. 명령줄 인터페이스(CLI)
 
 사용자는 사용자 인터페이스의 도움을 받아 컴퓨터와 상호 작용합니다. 이 사용자 인터페이스는 GUI 또는 CLI일 수 있습니다.
 
