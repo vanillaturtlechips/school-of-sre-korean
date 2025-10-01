@@ -1,64 +1,56 @@
-# Linux Server Administration
+# Linux 서버 관리
 
-In this course, will try to cover some of the common tasks that a Linux
-server administrator performs. We will first try to understand what a
-particular command does and then try to understand the commands using
-examples. Do keep in mind that it's very important to practice the Linux
-commands on your own.
+이 과정에서는 Linux 서버 관리자가 수행하는 일반적인 작업 중 일부를 다루려고 합니다. 먼저 특정 명령어가 무엇을 하는지 이해한 다음, 예시를 통해 명령어들을 이해해 볼 것입니다. Linux 명령어를 직접 실습하는 것이 매우 중요하다는 점을 명심하십시오.
 
-## Lab Environment Setup
+## 실습 환경 설정 (Lab Environment Setup)
 
-- Install docker on your system - [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/) OR you can use online [Docker playground](https://labs.play-with-docker.com/)
+- 여러분의 시스템에 Docker를 설치하세요. - [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/) 온라인을 사용하고 싶으면, [Docker playground](https://labs.play-with-docker.com/)
 
-- We will be running all the commands on Red Hat Enterprise Linux (RHEL) 8 system.
+- 우리는 Red Hat Enterprise Linux (RHEL) 8 시스템에서 모든 명령어를 실행할 것입니다
 
   ![](images/linux/admin/image19.png)
 
-- We will run most of the commands used in this module in the above Docker container.
+- 이 모듈에서 사용되는 대부분의 명령어를 위의 Docker 컨테이너에서 실행할 것입니다.
 
-## Multi-User Operating Systems
+## 다중 사용자 운영체제 (Multi-User Operating Systems)
 
-An operating system is considered as multi-user if it allows multiple people/users to use a computer and not affect each other's files and preferences. Linux-based operating systems are multi-user in nature as it allows multiple users to access the system at the same time. A typical computer will only have one keyboard and monitor but multiple users can log in via SSH if the computer is connected to the network. We will cover more about SSH later.
+운영체제가 여러 사람/사용자가 컴퓨터를 사용하고 서로의 파일이나 환경 설정에 영향을 주지 않도록 허용하면 **다중 사용자(multi-user)**로 간주됩니다. Linux 기반 운영체제는 여러 사용자가 동시에 시스템에 접근하도록 허용하므로 본질적으로 다중 사용자입니다. 일반적인 컴퓨터는 키보드와 모니터가 하나뿐이지만, 컴퓨터가 네트워크에 연결되어 있다면 여러 사용자가 SSH를 통해 로그인할 수 있습니다. SSH에 대해서는 나중에 더 자세히 다룰 것입니다.
 
-As a server administrator, we are mostly concerned with the Linux servers which are physically present at a very large distance from us. We can connect to these servers with the help of remote login methods like SSH.
+서버 관리자로서 우리는 대부분 우리와 물리적으로 매우 멀리 떨어져 있는 Linux 서버에 관심을 가집니다. 우리는 SSH와 같은 원격 로그인 방법을 통해 이 서버들에 연결할 수 있습니다.
 
-Since Linux supports multiple users, we need to have a method which can protect the users from each other. One user should not be able to access and modify files of other users
+Linux는 다중 사용자를 지원하므로, 사용자들을 서로 보호할 수 있는 방법이 필요합니다. 한 사용자가 다른 사용자의 파일에 접근하거나 수정할 수 없어야 합니다.
 
+## 사용자/그룹 관리 (User/Group Management)
 
-## User/Group Management
+- Linux의 사용자에게는 **UID(User ID)**라는 사용자 ID가 연결되어 있습니다.
 
-- Users in Linux has an associated user ID called UID attached to them.
+- 사용자는 또한 자신과 연결된 홈 디렉토리와 로그인 셸을 가집니다.
 
-- Users also has a home directory and a login shell associated with them.
+- 그룹은 하나 이상의 사용자 모음입니다. 그룹은 사용자 그룹 간에 권한을 공유하는 것을 더 쉽게 만듭니다.
 
-- A group is a collection of one or more users. A group makes it easier to share permissions among a group of users.
-
-- Each group has a group ID called GID associated with it.
+- 각 그룹에는 **GID(Group ID)**라는 그룹 ID가 연결되어 있습니다.
 
 ### id command
 
-`id` command can be used to find the `uid` and `gid` associated with an user.
-It also lists down the groups to which the user belongs to.
+`id` 명령어는 사용자에게 연결된 **uid와 gid**를 찾는 데 사용될 수 있습니다. 또한 사용자가 속한 그룹 목록도 나열합니다.
 
-The `uid` and `gid` associated with the root user is 0.
+루트 사용자(root user)와 연결된 `uid`와 `gid`는 0입니다.
 
 ![](images/linux/admin/image30.png)
 
-A good way to find out the current user in Linux is to use the `whoami`
-command.
+Linux에서 현재 사용자를 확인하는 좋은 방법은 `whoami` 명령어를 사용하는 것입니다
 
 ![](images/linux/admin/image35.png)
 
-**`root` user or superuser is the most privileged user with**
-**unrestricted access to all the resources on the system. It has UID 0**
+**`root` 사용자 또는 슈퍼유저는 시스템의 모든 리소스에 무제한적인 접근 권한을 가진 가장 특권적인 사용자입니다. 이 사용자는 UID 0을 가집니다.**
 
 ### Important files associated with users/groups
 
 | Files        | Description                                                                            |
 |--------------|----------------------------------------------------------------------------------------|
-| /etc/passwd  | Stores the user name, the `uid`, the `gid`, the home directory, the login shell etc  |
-| /etc/shadow  | Stores the password associated with the users                                          |
-| /etc/group   | Stores information about different groups on the system                                |
+| /etc/passwd  | 	사용자 이름, `uid`, `gid`, 홈 디렉토리, 로그인 셸 등을 저장합니다.                           |
+| /etc/shadow  | 사용자와 연결된 **암호(password)**를 저장합니다.                                            |
+| /etc/group   | 시스템의 다양한 그룹에 대한 정보를 저장합니다.                                                |
 
 ![](images/linux/admin/image23.png)
 
@@ -66,196 +58,147 @@ command.
 
 ![](images/linux/admin/image9.png)
 
-If you want to understand each field discussed in the above outputs, you can go
-through below links:
+위 출력에서 논의된 각 필드를 이해하고 싶다면, 다음 링크들을 참고할 수 있습니다:
 
 - [https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/shadow-file-formats.html](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/shadow-file-formats.html)
 
 - [https://tldp.org/HOWTO/User-Authentication-HOWTO/x71.html](https://tldp.org/HOWTO/User-Authentication-HOWTO/x71.html)
 
-## Important commands for managing users
+## 사용자 관리를 위한 중요한 명령어
 
-Some of the commands which are used frequently to manage users/groups
-on Linux are following:
+Linux에서 사용자/그룹을 관리하는 데 자주 사용되는 명령어는 다음과 같습니다:
 
-- `useradd` - Creates a new user
-- `passwd` - Adds or modifies passwords for a user
-- `usermod` - Modifies attributes of an user
-- `userdel` - Deletes an user
+- `useradd` - 새 사용자를 생성합니다.
+- `passwd` - 사용자의 암호를 추가하거나 수정합니다.
+- `usermod` - 사용자의 속성을 수정합니다.
+- `userdel` -  사용자를 삭제합니다.
 
 ### useradd
 
-The `useradd` command adds a new user in Linux.
+`useradd` 명령어는 Linux에 새 사용자를 추가합니다.
 
-We will create a new user `shivam`. We will also verify that the user
-has been created by tailing the `/etc/passwd` file. The `uid` and `gid` are
-1000 for the newly created user. The home directory assigned to the user
-is `/home/shivam` and the login shell assigned is `/bin/bash`. Do note that
-the user home directory and login shell can be modified later on.
+새 사용자 `shivam`을 생성하고 `/etc/passwd` 파일의 끝 부분을 확인하여 사용자가 생성되었는지 확인할 것입니다. 새로 생성된 사용자의 `uid`와 `gid`는 1000입니다. 사용자에게 할당된 홈 디렉토리는 `/home/shivam`이고, 로그인 셸은 `/bin/bash`입니다. 사용자 홈 디렉토리와 로그인 셸은 나중에 수정될 수 있다는 점을 유의하십시오.
 
 ![](images/linux/admin/image41.png)
 
-If we do not specify any value for attributes like home directory or
-login shell, default values will be assigned to the user. We can also
-override these default values when creating a new user.
+홈 디렉토리나 로그인 셸과 같은 속성에 값을 지정하지 않으면, 기본값이 사용자에게 할당됩니다. 새 사용자를 생성할 때 이러한 기본값을 재정의할 수도 있습니다.
 
 ![](images/linux/admin/image54.png)
 
 ### passwd
 
-The `passwd` command is used to create or modify passwords for a user.
+`passwd` 명령어는 사용자의 암호를 생성하거나 수정하는 데 사용됩니다.
 
-In the above examples, we have not assigned any password for users
-`shivam` or `amit` while creating them.
+위 예시들에서 우리는 `shivam`이나 `amit` 사용자를 생성할 때 암호를 할당하지 않았습니다.
 
-`!!` in an account entry in shadow means the account of an user has
-been created, but not yet given a password.
+`shadow` 파일의 계정 항목에 있는 `!!` 표시는 사용자 계정은 생성되었지만, 아직 암호가 부여되지 않았음을 의미합니다.
 
 ![](images/linux/admin/image13.png)
 
-Let's now try to create a password for user `shivam`.
+이제 `shivam` 사용자의 암호를 생성해 봅시다.
 
 ![](images/linux/admin/image55.png)
 
-Do remember the password as we will be later using examples
-where it will be useful.
+나중에 유용하게 사용할 예시들이 있으므로 암호를 기억해 두십시오.
 
-Also, let's change the password for the root user now. When we switch
-from a normal user to root user, it will request you for a password.
-Also, when you login using root user, the password will be asked.
+또한, 이제 루트 사용자의 암호를 변경해 봅시다. 일반 사용자에서 루트 사용자로 전환할 때 암호를 요청할 것입니다. 또한 루트 사용자로 로그인할 때도 암호를 요청할 것입니다.
 
 ![](images/linux/admin/image39.png)
 
 ### usermod
 
-The `usermod` command is used to modify the attributes of an user like the
-home directory or the shell.
+`usermod` 명령어는 홈 디렉토리 또는 셸과 같은 사용자의 속성을 수정하는 데 사용됩니다.
 
-Let's try to modify the login shell of user `amit` to `/bin/bash`.
+`amit` 사용자의 로그인 셸을 `/bin/bash`로 수정해 봅시다.
 
 ![](images/linux/admin/image17.png)
 
-In a similar way, you can also modify many other attributes for a user.
-Try `usermod -h` for a list of attributes you can modify.
+이와 유사한 방식으로 사용자의 다른 많은 속성도 수정할 수 있습니다. 수정 가능한 속성 목록을 보려면 `usermod -h`를 시도해 보세요.
 
 ### userdel
 
-The `userdel` command is used to remove a user on Linux. Once we remove a
-user, all the information related to that user will be removed.
+`userdel` 명령어는 Linux에서 사용자를 제거하는 데 사용됩니다. 사용자를 제거하면 해당 사용자와 관련된 모든 정보가 제거됩니다.
 
-Let's try to delete the user `amit`. After deleting the user, you will
-not find the entry for that user in `/etc/passwd` or `/etc/shadow` file.
+`amit` 사용자를 삭제해 봅시다. 사용자를 삭제한 후에는 `/etc/passwd`나 `/etc/shadow` 파일에서 해당 사용자에 대한 항목을 찾을 수 없을 것입니다.
 
 ![](images/linux/admin/image34.png)
 
-## Important commands for managing groups
+## 그룹 관리를 위한 중요한 명령어
 
-Commands for managing groups are quite similar to the commands used for managing users. Each command is not explained in detail here as they are quite similar. You can try running these commands on your system.
+그룹 관리를 위한 명령어는 사용자 관리를 위한 명령어와 매우 유사합니다. 각 명령어는 매우 비슷하기 때문에 여기서는 자세히 설명하지 않습니다. 시스템에서 이 명령어들을 실행해 볼 수 있습니다.
 
 | Command                | Description                     |
 | -----------------------| ------------------------------- |
-| groupadd <group_name\> | Creates a new group             |
-| groupmod <group_name\> | Modifies attributes of a group  |
-| groupdel <group_name\> | Deletes a group                 |
-| gpasswd  <group_name\> | Modifies password for group     |
+| groupadd <group_name\> | 새 그룹을 생성합니다               |
+| groupmod <group_name\> | 그룹의 속성을 수정합니다.           |
+| groupdel <group_name\> | 그룹을 삭제합니다.                 |
+| gpasswd  <group_name\> | 그룹의 암호를 수정합니다.           |
 
 ![](images/linux/admin/image52.png)
 
-We will now try to add user `shivam` to the group we have created above.
+이제 `shivam` 사용자를 위에서 생성한 그룹에 추가해 봅시다.
 
 ![](images/linux/admin/image33.png)
 
-## Becoming a Superuser
+## 슈퍼유저 되기 (Becoming a Superuser)
 
-**Before running the below commands, do make sure that you have set up a
-password for user `shivam` and user `root` using the `passwd` command
-described in the above section.**
+**아래 명령어를 실행하기 전에, 위 섹션에서 설명한 `passwd` 명령어를 사용하여 `shivam` 사용자와 `root` 사용자에 대해 암호를 설정했는지 확인하십시오.**
 
-The `su` command can be used to switch users in Linux. Let's now try to
-switch to user `shivam`.
+`su` 명령어는 `Linux`에서 사용자를 전환하는 데 사용될 수 있습니다. 이제 `shivam` 사용자로 전환해 봅시다.
 
 ![](images/linux/admin/image37.png)
 
-Let's now try to open the `/etc/shadow` file.
+이제 `/etc/shadow` 파일을 열어 봅시다.
 
 ![](images/linux/admin/image29.png)
 
-The operating system didn't allow the user `shivam` to read the content
-of the `/etc/shadow` file. This is an important file in Linux which
-stores the passwords of users. This file can only be accessed by `root` or
-users who have the `superuser` privileges.
+운영체제는 `shivam` 사용자가 `/etc/shadow` 파일의 내용을 읽는 것을 허용하지 않았습니다. 이 파일은 사용자의 암호를 저장하는 Linux의 중요한 파일입니다. 이 파일은 `root` 또는 `슈퍼유저 권한을 가진 사용자`만 접근할 수 있습니다.
 
 
-**The `sudo` command allows a** **user to run commands with the security
-privileges of the root user.** Do remember that the root user has all
-the privileges on a system. We can also use `su` command to switch to the
-root user and open the above file but doing that will require the
-password of the root user. An alternative way which is preferred on most
-modern operating systems is to use `sudo` command for becoming a
-superuser. Using this way, a user has to enter his/her password and they
-need to be a part of the `sudo` group.
+`sudo` 명령어는 사용자가 root 사용자의 보안 권한으로 명령을 실행할 수 있도록 허용합니다. 루트 사용자는 시스템에 대한 모든 권한을 가진다는 점을 기억하십시오. `su` 명령어를 사용하여 루트 사용자로 전환하고 위 파일을 열 수도 있지만, 그렇게 하려면 루트 사용자의 암호가 필요합니다. 대부분의 최신 운영체제에서 선호되는 대안적인 방법은 `sudo` 명령어를 사용하여 슈퍼유저가 되는 것입니다. 이 방법을 사용하면 사용자는 자신의 암호를 입력해야 하며, `sudo` 그룹의 일부여야 합니다.
 
-**How to provide superpriveleges to other users ?**
+**다른 사용자에게 슈퍼 권한을 제공하는 방법은 무엇일까요?**
 
-Let's first switch to the root user using `su` command. Do note that using
-the below command will need you to enter the password for the root user.
+먼저 `su` 명령어를 사용하여 루트 사용자(root user)로 전환해 봅시다. 아래 명령어를 사용하려면 루트 사용자의 암호를 입력해야 한다는 점을 유의하십시오.
 
 ![](images/linux/admin/image44.png)
 
-In case, you forgot to set a password for the root user, type `exit` and
-you will be back as the root user. Now, set up a password using the
-`passwd` command.
+만약 루트 사용자의 암호를 설정하는 것을 잊었다면, `exit`를 입력하면 루트 사용자로 돌아갈 수 있습니다. 이제 `passwd` 명령어를 사용하여 암호를 설정하십시오.
 
-**The file `/etc/sudoers` holds the names of users permitted to invoke
-`sudo`**. In Red Hat operating systems, this file is not present by
-default. We will need to install `sudo`.
+**`/etc/sudoers` 파일에는 `sudo`를 호출할 수 있는 권한을 가진 사용자 이름이 담겨 있습니다. **. Red Hat 운영체제에서는 이 파일이 기본적으로 존재하지 않습니다. 우리는 `sudo`를 설치해야 합니다.
 
 ![](images/linux/admin/image3.png)
 
-We will discuss the `yum` command in detail in later sections.
+`yum` 명령어에 대해서는 나중 섹션에서 자세히 논의할 것입니다.
 
-Try to open the `/etc/sudoers` file on the system. The file has a lot of
-information. This file stores the rules that users must follow when
-running the `sudo` command. For example, `root` is allowed to run any
-commands from anywhere.
+시스템에서 `/etc/sudoers` 파일을 열어보십시오. 파일에는 많은 정보가 있습니다. 이 파일은 사용자들이 `sudo` 명령어를 실행할 때 따라야 하는 규칙을 저장합니다. 예를 들어, `root`는 어디서든 모든 명령어를 실행하는 것이 허용됩니다.
 
 ![](images/linux/admin/image8.png)
 
-One easy way of providing root access to users is to add them to a group
-which has permissions to run all the commands. `wheel` is a group in
-Red Hat Linux with such privileges.
+사용자에게 루트 접근 권한을 제공하는 한 가지 쉬운 방법은 모든 명령어를 실행할 권한을 가진 그룹에 그들을 추가하는 것입니다. `wheel`은 Red Hat Linux에서 그러한 권한을 가진 그룹입니다.
 
 ![](images/linux/admin/image25.png)
 
-Let's add the user `shivam` to this group so that it also has `sudo`
-privileges.
+이제 `shivam` 사용자에게도 `sudo` 권한이 있도록 이 그룹에 추가해 봅시다.
 
 ![](images/linux/admin/image48.png)
 
-Let's now switch back to user `shivam` and try to access the
-`/etc/shadow` file.
+이제 `shivam` 사용자로 다시 전환하여 `/etc/shadow` 파일에 접근해 봅시다.
 
 ![](images/linux/admin/image56.png)
 
-We need to use `sudo` before running the command since it can only be
-accessed with the `sudo` privileges. We have already given `sudo` privileges
-to user `shivam` by adding him to the group `wheel`.
+`sudo` 권한으로만 접근할 수 있기 때문에 명령어를 실행하기 전에 `sudo`를 사용해야 합니다. 우리는 이미 `shivam`을 `wheel` 그룹에 추가하여 `sudo` 권한을 부여했습니다.
 
 
-## File Permissions
+## 파일 권한 (File Permissions)
 
-On a Linux operating system, each file and directory is assigned access
-permissions for the owner of the file, the members of a group of related
-users and everybody else. This is to make sure that one user is not
-allowed to access the files and resources of another user.
+Linux 운영체제에서 각 파일과 디렉토리는 파일의 소유자, 관련 사용자 그룹의 구성원, 그리고 나머지 모든 사람에 대한 접근 권한이 할당됩니다. 이는 한 사용자가 다른 사용자의 파일과 리소스에 접근할 수 없도록 보장하기 위함입니다.
 
-To see the permissions of a file, we can use the `ls` command. Let's look
-at the permissions of `/etc/passwd` file.
+파일의 권한을 보려면 `ls` 명령어를 사용할 수 있습니다. `/etc/passwd` 파일의 권한을 살펴봅시다
 
 ![](images/linux/admin/image40.png)
 
-Let's go over some of the important fields in the output that are
-related to file permissions.
+파일 권한과 관련된 출력의 몇 가지 중요한 필드를 살펴보겠습니다.
 
 ![](images/linux/admin/image31.jpg)
 
@@ -264,12 +207,9 @@ related to file permissions.
 
 ### Chmod command
 
-The `chmod` command is used to modify files and directories permissions in
-Linux.
+`chmod` 명령어는 Linux에서 파일 및 디렉토리의 권한을 수정하는 데 사용됩니다.
 
-The `chmod` command accepts permissions in as a numerical argument. We can
-think of permission as a series of bits with 1 representing True or
-allowed and 0 representing False or not allowed.
+`chmod` 명령어는 권한을 숫자 인수로 받습니다. 우리는 권한을 비트(bit)의 연속으로 생각할 수 있으며, 1은 True 또는 허용됨을, 0은 False 또는 허용되지 않음을 나타냅니다.
 
 | Permission               | rwx     | Binary  |   Decimal |
 | -------------------------| ------- | ------- | --------- |
@@ -282,70 +222,58 @@ allowed and 0 representing False or not allowed.
 | Execute only             | --x     | 001     | 1         |
 | None                     | ---     | 000     | 0         |
 
-We will now create a new file and check the permission of the file.
+이제 새 파일을 만들고 파일의 권한을 확인해 보겠습니다.
 
 ![](images/linux/admin/image15.png)
 
-The group owner doesn't have the permission to write to this file. Let's
-give the group owner or root the permission to write to it using `chmod`
-command.
+그룹 소유자는 이 파일에 쓸 수 있는 권한이 없습니다. `chmod` 명령어를 사용하여 그룹 소유자, 즉 root에게 쓰기 권한을 부여해 봅시다.
 
 ![](images/linux/admin/image26.png)
 
-`chmod` command can be also used to change the permissions of a directory
-in the similar way.
+`chmod` 명령어는 이와 유사한 방식으로 디렉토리의 권한을 변경하는 데도 사용될 수 있습니다.
 
 ### Chown command
 
-The `chown` command is used to change the owner of files or
-directories in Linux.
+`chown` 명령어는 Linux에서 파일 또는 디렉토리의 소유자를 변경하는 데 사용됩니다.
 
-Command syntax: `chown \<new_owner\> \<file_name\>`
+명령어 구문: `chown \<new_owner\> \<file_name\>`
 
 ![](images/linux/admin/image6.png)
 
-**In case, we do not have `sudo` privileges, we need to use `sudo`
-command**. Let's switch to user `shivam` and try changing the owner. We
-have also changed the owner of the file to `root` before running the below
-command.
+**`sudo` 권한이 없는 경우, `sudo` 명령어를 사용해야 합니다.**. `shivam` 사용자로 전환하여 소유자 변경을 시도해 봅시다. 또한 아래 명령어를 실행하기 전에 파일의 소유자를 `root`로 변경했습니다.
 
 ![](images/linux/admin/image12.png)
 
-Chown command can also be used to change the owner of a directory in the
-similar way.
+`chown` 명령어는 이와 유사한 방식으로 디렉토리의 소유자를 변경하는 데도 사용될 수 있습니다.
 
 ### Chgrp command
 
-The `chgrp` command can be used to change the group ownership of files or
-directories in Linux. The syntax is very similar to that of `chown`
-command.
+`chgrp` 명령어는 Linux에서 파일 또는 디렉토리의 그룹 소유권을 변경하는 데 사용될 수 있습니다. 구문은 `chown` 명령어와 매우 유사합니다.
 
 ![](images/linux/admin/image27.png)
 
-`chgrp` command can also be used to change the owner of a directory in the
-similar way.
+`chgrp` 명령어는 이와 유사한 방식으로 디렉토리의 그룹 소유권을 변경하는 데도 사용될 수 있습니다.
 
 ## SSH Command
 
-The `ssh` command is used for logging into the remote systems, transfer files between systems and for executing commands on a remote machine. `SSH` stands for secure shell and is used to provide an encrypted secured connection between two hosts over an insecure network like the internet.
+`ssh` 명령어는 원격 시스템에 로그인하거나, 시스템 간에 파일을 전송하거나, 원격 머신에서 명령어를 실행하는 데 사용됩니다. SSH는 Secure Shell의 약자로, 인터넷과 같은 안전하지 않은 네트워크를 통해 두 호스트 간에 암호화된 보안 연결을 제공하는 데 사용됩니다.
 
 Reference:
 [https://www.ssh.com/ssh/command/](https://www.ssh.com/ssh/command/)
 
-We will now discuss passwordless authentication which is secure and most
-commonly used for `ssh` authentication.
+이제 보안성이 높고 `ssh` 인증에 가장 일반적으로 사용되는 암호 없이 인증하는 방법에 대해 논의할 것입니다.
 
-### Passwordless Authentication Using SSH
+### SSH를 사용한 암호 없는 인증 (Passwordless Authentication Using SSH)
 
-Using this method, we can `ssh` into hosts without entering the password.
-This method is also useful when we want some scripts to perform
-ssh-related tasks.
+이 방법을 사용하면 암호를 입력하지 않고도 호스트에 `ssh`로 접속할 수 있습니다. 이 방법은 일부 스크립트가 `ssh` 관련 작업을 수행하도록 할 때도 유용합니다.
 
-Passwordless authentication requires the use of a public and private key pair. As the name implies, the public key can be shared with anyone but the private key should be kept private.
-Let's not get into the details of how this authentication works. You can read more about it
+암호 없는 인증은 공개 키와 개인 키 쌍을 사용해야 합니다. 이름에서 알 수 있듯이, 공개 키는 누구와도 공유할 수 있지만, 개인 키는 비밀로 유지되어야 합니다
+
+이 인증이 어떻게 작동하는지에 대한 세부 사항은 생략하겠습니다. 자세한 내용은 여기에서 더 읽어볼 수 있습니다.
+
 [here](https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process)
 
-Steps for setting up a passwordless authentication with a remote host:
+원격 호스트와 암호 없는 인증을 설정하는 단계:
 
 1. Generating public-private key pair  
 
